@@ -3,6 +3,9 @@
 # Start from golang:1.12-alpine base image
 FROM golang:1.21.6-alpine
 
+# Install make
+RUN apk add --no-cache make
+
 # Environment variables which CompileDaemon requires to run
 ENV PROJECT_DIR=/app \
     GO111MODULE=on \
@@ -13,10 +16,14 @@ RUN mkdir /app
 COPY .. /app
 WORKDIR /app
 
+# Add go path on .bashrc
+RUN echo "export PATH=$PATH:$(go env GOPATH)/bin" >> ~/.bashrc
+RUN echo "export PATH=$PATH:$(go env GOROOT)/bin" >> ~/.bashrc
+
 # Get CompileDaemon
 RUN go get github.com/githubnemo/CompileDaemon
 RUN go install github.com/githubnemo/CompileDaemon
 
 # The build flag sets how to build after a change has been detected in the source code
 # The command flag sets how to run the app after it has been built
-ENTRYPOINT CompileDaemon -build="go build -o main" -command="./main"
+ENTRYPOINT CompileDaemon -build="make build" -command="make"
