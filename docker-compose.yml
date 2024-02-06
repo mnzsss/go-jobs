@@ -25,7 +25,7 @@ services:
     networks: # Networks to join (Services on the same network can communicate with each other using their name)
       - backend
 
-  # Redis Service   
+  # Postgres Service   
   postgres:
     image: "postgres:alpine" # Use a public Postgres image to build the postgres service
     restart: unless-stopped
