@@ -20,12 +20,10 @@ services:
       DB_PASSWORD: gojobs
       DB_NAME: gojobs
       DB_PORT: 5432
+    volumes:
+      - ./:/app
     networks: # Networks to join (Services on the same network can communicate with each other using their name)
       - backend
-    develop:
-      watch:
-        - action: rebuild
-          path: .
 
   # Redis Service   
   postgres:
