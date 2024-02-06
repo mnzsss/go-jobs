@@ -61,6 +61,8 @@ make
 
 ### Docker
 
+Run docker compose with Auto Rebuilding:
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/mnzsss/go-jobs.git
