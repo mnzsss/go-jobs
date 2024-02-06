@@ -1,37 +1,16 @@
 package handler
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"github.com/mnzsss/go-jobs/config"
+	"gorm.io/gorm"
 )
 
-func ListOpeningsHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "List of openings",
-	})
-}
+var (
+	logger *config.Logger
+	db     *gorm.DB
+)
 
-func CreateOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "Create a new opening",
-	})
-}
-
-func GetOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "Get a one opening",
-	})
-}
-
-func UpdateOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "Update a one opening",
-	})
-}
-
-func DeleteOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "Delete a one opening",
-	})
+func InitializeHandler() {
+	logger = config.GetLogger("handler")
+	db = config.GetDB()
 }

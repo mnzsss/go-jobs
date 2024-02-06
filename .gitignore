@@ -16,6 +16,7 @@
 
 # Go workspace file
 go.work
+main
 
 # Ignore .env file containing credentials, API keys, etc
 .env
