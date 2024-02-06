@@ -1,3 +1,5 @@
+<img src="./.github/images/banner.jpg" />
+
 # Go Jobs
 
 The CRUD Project with GORM, PostgreSQL, Gin, Gin-Swagger, Swag, Makefile, Docker, and Docker Compose for study purposes about Go.
