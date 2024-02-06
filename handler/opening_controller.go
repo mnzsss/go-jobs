@@ -8,6 +8,14 @@ import (
 	"github.com/mnzsss/go-jobs/schemas"
 )
 
+// @Summary List all openings
+// @Description List all job openings
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Success 200 {object} ListOpeningsResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /openings [get]
 func ListOpeningsHandler(ctx *gin.Context) {
 	openings := []schemas.Opening{}
 
@@ -21,6 +29,17 @@ func ListOpeningsHandler(ctx *gin.Context) {
 	SendSuccess(ctx, "list", openings)
 }
 
+// @Summary Create an opening
+// @Description Create an new job opening
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Param request body CreateOpeningRequest true "Request Body"
+// @Success 201 {object} CreateOpeningResponse
+// @Failure 404 {object} ErrorResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /openings [post]
 func CreateOpeningHandler(ctx *gin.Context) {
 	request := CreateOpeningRequest{}
 
@@ -55,6 +74,16 @@ func CreateOpeningHandler(ctx *gin.Context) {
 	SendSuccess(ctx, "create", opening)
 }
 
+// @Summary Get an opening
+// @Description Get a job opening by id
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Param id path string true "Opening ID"
+// @Success 200 {object} GetOpeningResponse
+// @Failure 404 {object} ErrorResponse
+// @Failure 400 {object} ErrorResponse
+// @Router /openings/{id} [get]
 func GetOpeningHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 
@@ -75,6 +104,18 @@ func GetOpeningHandler(ctx *gin.Context) {
 	SendSuccess(ctx, "get", opening)
 }
 
+// @Summary Update an opening
+// @Description Update a job opening by id
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Param id path string true "Opening ID"
+// @Param request body UpdateOpeningRequest true "Request Body"
+// @Success 200 {object} UpdateOpeningResponse
+// @Failure 404 {object} ErrorResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /openings/{id} [put]
 func UpdateOpeningHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 
@@ -141,6 +182,17 @@ func UpdateOpeningHandler(ctx *gin.Context) {
 	SendSuccess(ctx, "update", opening)
 }
 
+// @Summary Delete an opening
+// @Description Delete a job opening by id
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Param id path string true "Opening ID"
+// @Success 200 {object} DeleteOpeningResponse
+// @Failure 404 {object} ErrorResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /openings/{id} [delete]
 func DeleteOpeningHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 

@@ -9,7 +9,7 @@ CHECK_MARK = ✔️
 CROSS_MARK = ❌
 
 # Tasks
-default: run
+default: run-with-docs
 
 run:
 	@echo "$(GREEN)$(CHECK_MARK) Running $(APP_NAME)$(RESET)"

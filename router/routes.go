@@ -8,6 +8,8 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
+// @BasePath /api/v1
+
 func initializeRoutes(router *gin.Engine) {
 	// Initialize handler
 	handler.InitializeHandler()

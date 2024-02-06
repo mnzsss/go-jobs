@@ -24,6 +24,10 @@ RUN echo "export PATH=$PATH:$(go env GOROOT)/bin" >> ~/.bashrc
 RUN go get github.com/githubnemo/CompileDaemon
 RUN go install github.com/githubnemo/CompileDaemon
 
+# Get Swag
+RUN go get -u github.com/swaggo/swag/cmd/swag@latest
+RUN go install github.com/swaggo/swag/cmd/swag@latest
+
 # The build flag sets how to build after a change has been detected in the source code
-# The command flag sets how to run the app after it has been built
-ENTRYPOINT CompileDaemon -build="make build" -command="make"
+# The command flag sets how to run the app after it has been built only
+ENTRYPOINT CompileDaemon -build="make build" -command="make" -color=true -log-prefix=false -exclude-dir=docs
