@@ -6,14 +6,16 @@ The CRUD Project with GORM, PostgreSQL, Gin, Gin-Swagger, Swag, Makefile, Docker
 
 This project implements a CRUD in Go using the following technologies:
 
-- **GORM:** ORM (Object Relational Mapper) for interacting with the PostgreSQL database.
-- **PostgreSQL:** Relational database used to store CRUD data.
-- **Gin:** Web framework for building APIs in Go.
-- **Gin-Swagger:** Middleware for integrating Swagger with the Gin API.
-- **Swag:** Tool for generating Swagger documentation for Go APIs.
-- **Makefile:** Simplifies common development tasks.
-- **Docker:** Containerization for isolation and distribution of the application.
-- **Docker Compose:** Container orchestration for development environments.
+On start, this project implements a CRUD in Go using the following technologies:
+
+- 🗃️ **GORM:** ORM (Object Relational Mapper) for interacting with the PostgreSQL database. 
+- 🐘 **PostgreSQL:** Relational database used to store CRUD data. 
+- 🌐 **Gin:** Web framework for building APIs in Go. 
+- 📚 **Gin-Swagger:** Middleware for integrating Swagger with the Gin API. 
+- 📖 **Swag:** Tool for generating Swagger documentation for Go APIs.
+- 🛠️ **Makefile:** Simplifies common development tasks.
+- 🐳 **Docker:** Containerization for isolation and distribution of the application.
+- 🚢 **Docker Compose:** Container orchestration for development environments.
 
 ## Installation
 
