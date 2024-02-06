@@ -12,9 +12,14 @@ services:
       - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
     restart: unless-stopped
     depends_on: 
-      - postgres # This service depends on redis. Start that first.
+      postgres:
+        condition: service_healthy 
     environment: # Pass environment variables to the service
-      DB_URL: "postgres://postgres:gojobs@postgres:5432/gojobs?sslmode=disable"
+      DB_HOST: postgres
+      DB_USER: postgres
+      DB_PASSWORD: gojobs
+      DB_NAME: gojobs
+      DB_PORT: 5432
     networks: # Networks to join (Services on the same network can communicate with each other using their name)
       - backend
     develop:
@@ -30,6 +35,13 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: gojobs
       POSTGRES_DB: gojobs
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     networks:
       - backend
 
